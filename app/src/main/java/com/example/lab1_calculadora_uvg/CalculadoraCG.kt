@@ -60,69 +60,91 @@ class CalculadoraCG : AppCompatActivity() {
         btnDeleteAll = findViewById(R.id.btnDeleteAll)
 
         btnNine.setOnClickListener {
-            res += "9"
-            txtResultado.text = res
+            Accion("9")
         }
         btnEight.setOnClickListener {
-            res += "8"
-            txtResultado.text = res
+            Accion("8")
         }
         btnSeven.setOnClickListener {
-            res += "7"
-            txtResultado.text = res
+            Accion("7")
         }
         btnSix.setOnClickListener {
-            res += "6"
-            txtResultado.text = res
+            Accion("6")
         }
         btnFive.setOnClickListener {
-            res += "5"
-            txtResultado.text = res
+            Accion("5")
         }
         btnFour.setOnClickListener {
-            res += "4"
-            txtResultado.text = res
+            Accion("4")
         }
         btnThree.setOnClickListener {
-            res += "3"
-            txtResultado.text = res
+            Accion("3")
         }
         btnTwo.setOnClickListener {
-            res += "2"
-            txtResultado.text = res
+            Accion("2")
         }
         btnOne.setOnClickListener {
-            res += "1"
-            txtResultado.text = res
+            Accion("1")
         }
         btnZero.setOnClickListener {
-            res += "0"
-            txtResultado.text = res
+            Accion("0")
+        }
+        btnPoint.setOnClickListener {
+            Accion(".")
         }
 
 
         btnMul.setOnClickListener {
-            
+            Oper(Mul)
         }
         btnMin.setOnClickListener {
-
+            Oper(Resta)
         }
         btnSum.setOnClickListener {
-
+            Oper(Suma)
         }
         btnDivision.setOnClickListener {
-
+            Oper(Div)
         }
         btnResu.setOnClickListener {
-
-        }
-        btnPoint.setOnClickListener {
-
+            var ResOperacion =
+                when(Ope){
+                Suma -> Num1 + Num2
+                Resta -> Num1 - Num2
+                Mul -> Num1 * Num2
+                Div -> Num1 / Num2
+                else -> 0
+            }
+            txtResultado.text = ResOperacion.toString()
         }
         btnDeleteAll.setOnClickListener {
-
+            Num1 = 0.0
+            Num2 = 0.0
+            txtResultado.text= ""
+            Ope = SinValor
         }
+    }
 
+    private fun Oper(Ope : Int){
+        this.Ope = Ope
+        txtResultado.text = " "
+    }
 
+    private fun Accion(Dato : String){
+        txtResultado.text = "${txtResultado.text}$Dato"
+
+        if(Ope == SinValor){
+            Num1 = txtResultado.text.toString().toDouble()
+        } else {
+            Num2 = txtResultado.text.toString().toDouble()
+        }
+    }
+
+    companion object {
+        const val Suma = 1
+        const val Resta = 2
+        const val Mul = 3
+        const val Div = 4
+        const val SinValor = 0
     }
 }
