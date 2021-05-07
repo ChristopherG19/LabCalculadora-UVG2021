@@ -7,8 +7,15 @@ import android.widget.TextView
 import android.widget.Toast
 
 class CalculadoraCG : AppCompatActivity() {
+
+    private var Num1: Double = 0.0
+    private var Num2: Double = 0.0
+    private var Ope: Int = 0
+
+    lateinit var txtOperacion: TextView
     lateinit var txtResultado: TextView
-    lateinit var Res: String
+
+    lateinit var res: String
     lateinit var btnNine: Button
     lateinit var btnEight: Button
     lateinit var btnSeven: Button
@@ -19,6 +26,7 @@ class CalculadoraCG : AppCompatActivity() {
     lateinit var btnTwo: Button
     lateinit var btnOne: Button
     lateinit var btnZero: Button
+
     lateinit var btnMul: Button
     lateinit var btnMin: Button
     lateinit var btnSum: Button
@@ -31,7 +39,7 @@ class CalculadoraCG : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculadoracg)
-        Res = ""
+        res = ""
         txtResultado = findViewById(R.id.infoPantalla)
         btnNine = findViewById(R.id.btnNine)
         btnEight = findViewById(R.id.btnEight)
@@ -47,78 +55,74 @@ class CalculadoraCG : AppCompatActivity() {
         btnMin = findViewById(R.id.btnMin)
         btnSum = findViewById(R.id.btnSum)
         btnResu = findViewById(R.id.btnResu)
+        btnDivision = findViewById(R.id.btnDivision)
         btnPoint = findViewById(R.id.btnPoint)
         btnDeleteAll = findViewById(R.id.btnDeleteAll)
-        btnDivision = findViewById(R.id.btnDivision)
 
         btnNine.setOnClickListener {
-            Res += "9"
-            txtResultado.text = Res
+            res += "9"
+            txtResultado.text = res
         }
         btnEight.setOnClickListener {
-            Res += "8"
-            txtResultado.text = Res
+            res += "8"
+            txtResultado.text = res
         }
         btnSeven.setOnClickListener {
-            Res += "7"
-            txtResultado.text = Res
+            res += "7"
+            txtResultado.text = res
         }
         btnSix.setOnClickListener {
-            Res += "6"
-            txtResultado.text = Res
+            res += "6"
+            txtResultado.text = res
         }
         btnFive.setOnClickListener {
-            Res += "5"
-            txtResultado.text = Res
+            res += "5"
+            txtResultado.text = res
         }
         btnFour.setOnClickListener {
-            Res += "4"
-            txtResultado.text = Res
+            res += "4"
+            txtResultado.text = res
         }
         btnThree.setOnClickListener {
-            Res += "3"
-            txtResultado.text = Res
+            res += "3"
+            txtResultado.text = res
         }
         btnTwo.setOnClickListener {
-            Res += "2"
-            txtResultado.text = Res
+            res += "2"
+            txtResultado.text = res
         }
         btnOne.setOnClickListener {
-            Res += "1"
-            txtResultado.text = Res
+            res += "1"
+            txtResultado.text = res
         }
         btnZero.setOnClickListener {
-            Res += "0"
-            txtResultado.text = Res
+            res += "0"
+            txtResultado.text = res
         }
+
+
         btnMul.setOnClickListener {
-            Res += "*"
-            txtResultado.text = Res
+            
         }
         btnMin.setOnClickListener {
-            Res += "-"
-            txtResultado.text = Res
+
         }
         btnSum.setOnClickListener {
-            Res += "+"
-            txtResultado.text = Res
+
         }
         btnDivision.setOnClickListener {
-            Res += "/"
-            txtResultado.text = Res
+
         }
         btnResu.setOnClickListener {
-            Res = ""
-            txtResultado.text = "Calculando"
+
         }
         btnPoint.setOnClickListener {
-            Res += "."
-            txtResultado.text = Res
+
         }
         btnDeleteAll.setOnClickListener {
-            Res = ""
-            txtResultado.text = Res
+
         }
+
 
     }
 }
