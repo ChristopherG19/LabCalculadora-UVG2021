@@ -92,8 +92,6 @@ class CalculadoraCG : AppCompatActivity() {
         btnPoint.setOnClickListener {
             Accion(".")
         }
-
-
         btnMul.setOnClickListener {
             Oper(Mul)
         }
